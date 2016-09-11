@@ -716,6 +716,11 @@ class PluginManager{
 				$this->server->getLogger()->logException($e);
 			}
 		}
+
+		if($this->server->getAIHolder() != null) {
+			if($event instanceof EntityDeathEvent) $this->server->getAIHolder()->MobDeath($event);
+			if($event instanceof EntityDamageByEntityEvent) $this->server->getAIHolder()->EntityDamage($event);
+		}
 	}
 
 	/**
