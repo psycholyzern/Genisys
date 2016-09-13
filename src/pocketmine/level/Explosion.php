@@ -65,6 +65,13 @@ class Explosion{
 		$this->dropItem = $dropItem;
 	}
 
+	public function explode(){
+		if($this->explodeA()){
+			return $this->explodeB();
+		}
+		return false;
+	}
+
 	/**
 	 * @return bool
 	 */
